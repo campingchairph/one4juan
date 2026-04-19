@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -161,13 +162,16 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 <!-- ══════════════════════════════════════
   S1 · SPLASH
 ══════════════════════════════════════ -->
+
 <div class="screen active" id="s-splash" style="background:var(--night);position:relative;overflow:hidden;min-height:100vh;">
 
   <!-- night sky background spans full screen -->
+
   <div style="position:absolute;inset:0;background:var(--night);z-index:0;"></div>
   <div class="stars-bg" id="stars-container" style="z-index:1;"></div>
 
   <!-- city scene: fixed original pixel size, centered, sits in upper portion -->
+
   <div style="position:absolute;top:0;left:0;right:0;z-index:2;display:flex;justify-content:center;pointer-events:none;">
     <svg width="400" height="170" viewBox="0 0 400 170" style="image-rendering:pixelated;display:block;max-width:100%;">
       <!-- sky -->
@@ -264,9 +268,11 @@ select.form-input{appearance:none;-webkit-appearance:none;}
   </div>
 
   <!-- dark gradient overlay covers lower half behind text -->
+
   <div style="position:absolute;bottom:0;left:0;right:0;height:55%;background:linear-gradient(to top,var(--night) 55%,transparent);z-index:3;pointer-events:none;"></div>
 
   <!-- title + CTA pinned to lower center -->
+
   <div style="position:absolute;bottom:0;left:0;right:0;z-index:4;padding:0 24px 40px;text-align:center;">
     <div style="font-family:var(--px);font-size:8px;color:#A09080;letter-spacing:3px;margin-bottom:10px;">THERE ALWAYS</div>
     <div style="margin-bottom:8px;line-height:1.1;">
@@ -279,12 +285,14 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- ══════════════════════════════════════  S2 · ONBOARDING  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-onboard" style="background:var(--bg);">
   <div class="progress-dots" id="ob-dots"></div>
   <div class="scroll-body" style="display:flex;flex-direction:column;justify-content:center;" id="ob-body"></div>
 </div>
 
 <!-- ══════════════════════════════════════  S3 · VERIFY 1  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-v1" style="background:var(--bg);">
   <div class="dark-header"><div class="logo-big">ONEforJuan</div><div class="logo-sub">IDENTITY QUEST</div></div>
   <div class="step-bar" id="vbar-1"></div>
@@ -309,6 +317,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- ══════════════════════════════════════  S4 · VERIFY 2  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-v2" style="background:var(--bg);">
   <div class="dark-header"><button onclick="go('s-v1')" style="font-family:var(--px);font-size:7px;color:#706050;background:none;border:none;cursor:pointer;margin-bottom:8px;letter-spacing:1px;">← BACK</button><div class="logo-big">ONEforJuan</div><div class="logo-sub">IDENTITY QUEST</div></div>
   <div class="step-bar" id="vbar-2"></div>
@@ -327,6 +336,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- ══════════════════════════════════════  S5 · VERIFY 3  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-v3" style="background:var(--bg);">
   <div class="dark-header"><button onclick="go('s-v2')" style="font-family:var(--px);font-size:7px;color:#706050;background:none;border:none;cursor:pointer;margin-bottom:8px;letter-spacing:1px;">← BACK</button><div class="logo-big">ONEforJuan</div><div class="logo-sub">IDENTITY QUEST</div></div>
   <div class="step-bar" id="vbar-3"></div>
@@ -349,6 +359,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- ══════════════════════════════════════  S6 · APPROVED — AVATAR BUILDER  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-approved" style="background:var(--night);overflow:hidden;">
   <div class="scroll-body" style="align-items:center;padding-top:24px;padding-bottom:40px;">
     <div id="pre-reveal" style="text-align:center;width:100%;">
@@ -358,43 +369,47 @@ select.form-input{appearance:none;-webkit-appearance:none;}
       <button class="btn btn-sun" onclick="showAvatarBuilder()">BUILD MY CHARACTER →</button>
     </div>
 
-    <div id="avatar-builder" style="display:none;width:100%;">
-      <div style="font-family:var(--px);font-size:10px;color:var(--sun);text-align:center;margin-bottom:16px;line-height:1.8;">BUILD YOUR PIXEL SELF</div>
+```
+<div id="avatar-builder" style="display:none;width:100%;">
+  <div style="font-family:var(--px);font-size:10px;color:var(--sun);text-align:center;margin-bottom:16px;line-height:1.8;">BUILD YOUR PIXEL SELF</div>
 
-      <!-- live preview -->
-      <div style="display:flex;justify-content:center;margin-bottom:16px;">
-        <div style="background:#1E1C30;border:2px solid #3A3020;border-radius:16px;padding:16px 24px;text-align:center;">
-          <div id="av-preview" style="display:flex;justify-content:center;margin-bottom:8px;"></div>
-          <span class="badge badge-green" style="font-size:10px;">✓ Verified Account</span>
-        </div>
-      </div>
-
-      <!-- tabs -->
-      <div style="background:var(--night-mid);border-radius:12px;padding:4px;margin-bottom:16px;">
-        <div style="display:flex;" id="av-tabs">
-          <button class="av-tab active" onclick="avTab(this,'skin')">SKIN</button>
-          <button class="av-tab" onclick="avTab(this,'hair')">HAIR</button>
-          <button class="av-tab" onclick="avTab(this,'eyes')">EYES</button>
-          <button class="av-tab" onclick="avTab(this,'mouth')">MOUTH</button>
-          <button class="av-tab" onclick="avTab(this,'acc')">ACC.</button>
-        </div>
-      </div>
-
-      <!-- option grids -->
-      <div id="av-options" style="background:#1E1C30;border-radius:12px;padding:14px;margin-bottom:16px;min-height:100px;"></div>
-
-      <!-- name input -->
-      <div style="margin-bottom:16px;">
-        <label class="form-label" style="color:#A09080;">Your Username</label>
-        <input class="form-input" type="text" value="Bayani_Seph" style="background:#1A1810;border-color:#3A3020;color:#EEE0C0;"/>
-      </div>
-
-      <button class="btn btn-primary" onclick="go('s-role')">SAVE & ENTER WORLD →</button>
+  <!-- live preview -->
+  <div style="display:flex;justify-content:center;margin-bottom:16px;">
+    <div style="background:#1E1C30;border:2px solid #3A3020;border-radius:16px;padding:16px 24px;text-align:center;">
+      <div id="av-preview" style="display:flex;justify-content:center;margin-bottom:8px;"></div>
+      <span class="badge badge-green" style="font-size:10px;">✓ Verified Account</span>
     </div>
+  </div>
+
+  <!-- tabs -->
+  <div style="background:var(--night-mid);border-radius:12px;padding:4px;margin-bottom:16px;">
+    <div style="display:flex;" id="av-tabs">
+      <button class="av-tab active" onclick="avTab(this,'skin')">SKIN</button>
+      <button class="av-tab" onclick="avTab(this,'hair')">HAIR</button>
+      <button class="av-tab" onclick="avTab(this,'eyes')">EYES</button>
+      <button class="av-tab" onclick="avTab(this,'mouth')">MOUTH</button>
+      <button class="av-tab" onclick="avTab(this,'acc')">ACC.</button>
+    </div>
+  </div>
+
+  <!-- option grids -->
+  <div id="av-options" style="background:#1E1C30;border-radius:12px;padding:14px;margin-bottom:16px;min-height:100px;"></div>
+
+  <!-- name input -->
+  <div style="margin-bottom:16px;">
+    <label class="form-label" style="color:#A09080;">Your Username</label>
+    <input class="form-input" type="text" value="Bayani_Seph" style="background:#1A1810;border-color:#3A3020;color:#EEE0C0;"/>
+  </div>
+
+  <button class="btn btn-primary" onclick="go('s-role')">SAVE & ENTER WORLD →</button>
+</div>
+```
+
   </div>
 </div>
 
 <!-- ══════════════════════════════════════  S7 · ROLE SELECT  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-role" style="background:var(--bg);">
   <div class="dark-header">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;">
@@ -437,6 +452,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- ══════════════════════════════════════  S8 · BAYANI MAP  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-bmap" style="background:var(--bg);">
   <div style="background:var(--ink);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
     <button onclick="go('s-role')" style="font-family:var(--px);font-size:7px;color:#706050;background:none;border:none;cursor:pointer;letter-spacing:1px;">← SWITCH ROLE</button>
@@ -464,6 +480,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- ══════════════════════════════════════  S9 · BAYANI TASK ACTIVE  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-btask" style="background:var(--bg);">
   <div style="background:var(--ink);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
     <button onclick="go('s-bmap')" style="font-family:var(--px);font-size:7px;color:#706050;background:none;border:none;cursor:pointer;letter-spacing:1px;">← MAP</button>
@@ -499,6 +516,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- ══════════════════════════════════════  S10 · BAYANI RECEIPT  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-breceipt" style="background:var(--bg);">
   <div style="background:var(--ink);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
     <button onclick="go('s-btask')" style="font-family:var(--px);font-size:7px;color:#706050;background:none;border:none;cursor:pointer;letter-spacing:1px;">← BACK</button>
@@ -526,6 +544,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- ══════════════════════════════════════  S11 · BAYANI EARNINGS  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-bearnings" style="background:var(--bg);">
   <div style="background:var(--ink);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
     <button onclick="go('s-bmap')" style="font-family:var(--px);font-size:7px;color:#706050;background:none;border:none;cursor:pointer;letter-spacing:1px;">← MAP</button>
@@ -557,6 +576,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- ══════════════════════════════════════  S12 · LAKAN MAP  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-lmap" style="background:var(--bg);">
   <div style="background:var(--ink);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
     <button onclick="go('s-role')" style="font-family:var(--px);font-size:7px;color:#706050;background:none;border:none;cursor:pointer;letter-spacing:1px;">← SWITCH ROLE</button>
@@ -592,6 +612,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- ══════════════════════════════════════  S13 · LAKAN BROWSE BAYANIS  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-lbrowse" style="background:var(--bg);">
   <div style="background:var(--ink);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
     <button onclick="go('s-lmap')" style="font-family:var(--px);font-size:7px;color:#706050;background:none;border:none;cursor:pointer;letter-spacing:1px;">← MAP</button>
@@ -629,6 +650,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- ══════════════════════════════════════  S14 · LAKAN QUEST BUILDER  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-lquest" style="background:var(--bg);">
   <div style="background:var(--ink);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
     <button onclick="go('s-lbrowse')" style="font-family:var(--px);font-size:7px;color:#706050;background:none;border:none;cursor:pointer;letter-spacing:1px;">← BACK</button>
@@ -639,57 +661,61 @@ select.form-input{appearance:none;-webkit-appearance:none;}
     <div class="section-label" style="margin-bottom:10px;">SELECT SERVICE TYPE</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px;" id="qtype-grid"></div>
 
-    <!-- item breakdown -->
-    <div id="item-section">
-      <div class="section-label">ITEM BREAKDOWN (required)</div>
-      <div class="info-box info-ember" style="margin-bottom:12px;"><span class="info-icon">📋</span><div>Itemize everything. The Bayani sees this list before accepting. <strong>No vague requests.</strong></div></div>
-      <div class="item-label-grid"><div class="item-col-lbl">Item name</div><div class="item-col-lbl">Qty</div><div class="item-col-lbl">Est. price</div><div></div></div>
-      <div id="item-list">
-        <div class="item-grid"><input class="form-input" placeholder="e.g. Milo 1kg" value="Milo 1kg" oninput="calcTotal()" style="padding:8px 10px;font-size:13px;"/><input class="form-input" value="1" oninput="calcTotal()" style="padding:8px;font-size:13px;text-align:center;"/><input class="form-input" value="95" oninput="calcTotal()" style="padding:8px 10px;font-size:13px;"/><button class="remove-btn" onclick="removeItem(this)">✕</button></div>
-        <div class="item-grid"><input class="form-input" placeholder="e.g. Safeguard bar" value="Safeguard bar" oninput="calcTotal()" style="padding:8px 10px;font-size:13px;"/><input class="form-input" value="3" oninput="calcTotal()" style="padding:8px;font-size:13px;text-align:center;"/><input class="form-input" value="30" oninput="calcTotal()" style="padding:8px 10px;font-size:13px;"/><button class="remove-btn" onclick="removeItem(this)">✕</button></div>
-      </div>
-      <button class="add-item-btn" onclick="addItem()">+ Add another item</button>
-    </div>
+```
+<!-- item breakdown -->
+<div id="item-section">
+  <div class="section-label">ITEM BREAKDOWN (required)</div>
+  <div class="info-box info-ember" style="margin-bottom:12px;"><span class="info-icon">📋</span><div>Itemize everything. The Bayani sees this list before accepting. <strong>No vague requests.</strong></div></div>
+  <div class="item-label-grid"><div class="item-col-lbl">Item name</div><div class="item-col-lbl">Qty</div><div class="item-col-lbl">Est. price</div><div></div></div>
+  <div id="item-list">
+    <div class="item-grid"><input class="form-input" placeholder="e.g. Milo 1kg" value="Milo 1kg" oninput="calcTotal()" style="padding:8px 10px;font-size:13px;"/><input class="form-input" value="1" oninput="calcTotal()" style="padding:8px;font-size:13px;text-align:center;"/><input class="form-input" value="95" oninput="calcTotal()" style="padding:8px 10px;font-size:13px;"/><button class="remove-btn" onclick="removeItem(this)">✕</button></div>
+    <div class="item-grid"><input class="form-input" placeholder="e.g. Safeguard bar" value="Safeguard bar" oninput="calcTotal()" style="padding:8px 10px;font-size:13px;"/><input class="form-input" value="3" oninput="calcTotal()" style="padding:8px;font-size:13px;text-align:center;"/><input class="form-input" value="30" oninput="calcTotal()" style="padding:8px 10px;font-size:13px;"/><button class="remove-btn" onclick="removeItem(this)">✕</button></div>
+  </div>
+  <button class="add-item-btn" onclick="addItem()">+ Add another item</button>
+</div>
 
-    <!-- notes -->
-    <div class="section-label">SPECIAL INSTRUCTIONS</div>
-    <div class="form-group" style="margin-bottom:18px;"><textarea class="form-input" placeholder="e.g. Please check expiry dates. Milo should be the Blue 1kg pack..."></textarea></div>
+<!-- notes -->
+<div class="section-label">SPECIAL INSTRUCTIONS</div>
+<div class="form-group" style="margin-bottom:18px;"><textarea class="form-input" placeholder="e.g. Please check expiry dates. Milo should be the Blue 1kg pack..."></textarea></div>
 
-    <!-- totals -->
-    <div class="total-card" id="totals-card">
-      <div class="total-row"><span class="total-label">Item subtotal</span><span class="total-val" id="t-sub">₱185.00</span></div>
-      <div class="total-row"><span class="total-label">Platform fee (10%)</span><span class="total-val" id="t-fee">₱18.50</span></div>
-      <div class="total-row main"><span class="total-label">Items total</span><span class="total-val accent" id="t-items">₱203.50</span></div>
-    </div>
+<!-- totals -->
+<div class="total-card" id="totals-card">
+  <div class="total-row"><span class="total-label">Item subtotal</span><span class="total-val" id="t-sub">₱185.00</span></div>
+  <div class="total-row"><span class="total-label">Platform fee (10%)</span><span class="total-val" id="t-fee">₱18.50</span></div>
+  <div class="total-row main"><span class="total-label">Items total</span><span class="total-val accent" id="t-items">₱203.50</span></div>
+</div>
 
-    <!-- offer -->
-    <div class="section-label">YOUR SERVICE FEE OFFER</div>
-    <div class="offer-wrap"><span class="offer-currency">₱</span><input class="offer-input" id="offer-input" type="number" value="120" min="60" oninput="checkOffer()"/></div>
-    <div id="offer-hint" class="info-box info-green" style="margin-bottom:14px;"><span class="info-icon">✓</span><div>Good offer — Bayanis in this area typically earn ₱100–₱150 for this task.</div></div>
+<!-- offer -->
+<div class="section-label">YOUR SERVICE FEE OFFER</div>
+<div class="offer-wrap"><span class="offer-currency">₱</span><input class="offer-input" id="offer-input" type="number" value="120" min="60" oninput="checkOffer()"/></div>
+<div id="offer-hint" class="info-box info-green" style="margin-bottom:14px;"><span class="info-icon">✓</span><div>Good offer — Bayanis in this area typically earn ₱100–₱150 for this task.</div></div>
 
-    <!-- grand total -->
-    <div class="total-card">
-      <div class="total-row"><span class="total-label">Items total</span><span class="total-val" id="g-items">₱203.50</span></div>
-      <div class="total-row"><span class="total-label">Service fee (your offer)</span><span class="total-val" id="g-svc">₱120.00</span></div>
-      <div class="total-row main"><span class="total-label">Total you pay</span><span class="total-val accent" id="g-total">₱323.50</span></div>
-    </div>
+<!-- grand total -->
+<div class="total-card">
+  <div class="total-row"><span class="total-label">Items total</span><span class="total-val" id="g-items">₱203.50</span></div>
+  <div class="total-row"><span class="total-label">Service fee (your offer)</span><span class="total-val" id="g-svc">₱120.00</span></div>
+  <div class="total-row main"><span class="total-label">Total you pay</span><span class="total-val accent" id="g-total">₱323.50</span></div>
+</div>
 
-    <!-- payment -->
-    <div class="section-label">PAYMENT METHOD</div>
-    <div style="display:flex;gap:8px;margin-bottom:18px;" id="pay-chips">
-      <div class="time-chip sel" style="font-size:12px;font-weight:600;" onclick="selectPay(this)">GCash</div>
-      <div class="time-chip" style="font-size:12px;font-weight:600;" onclick="selectPay(this)">Maya</div>
-      <div class="time-chip" style="font-size:12px;font-weight:600;" onclick="selectPay(this)">Cash</div>
-    </div>
+<!-- payment -->
+<div class="section-label">PAYMENT METHOD</div>
+<div style="display:flex;gap:8px;margin-bottom:18px;" id="pay-chips">
+  <div class="time-chip sel" style="font-size:12px;font-weight:600;" onclick="selectPay(this)">GCash</div>
+  <div class="time-chip" style="font-size:12px;font-weight:600;" onclick="selectPay(this)">Maya</div>
+  <div class="time-chip" style="font-size:12px;font-weight:600;" onclick="selectPay(this)">Cash</div>
+</div>
 
-    <div class="info-box info-green" style="margin-bottom:18px;"><span class="info-icon">🔒</span><div>Payment is held in escrow and only released after you confirm the task is complete.</div></div>
-    <button class="btn btn-sun" onclick="go('s-lreview')">REVIEW QUEST →</button>
-    <button class="btn btn-ghost" style="margin-top:8px;" onclick="go('s-lbrowse')">← Back to Bayanis</button>
+<div class="info-box info-green" style="margin-bottom:18px;"><span class="info-icon">🔒</span><div>Payment is held in escrow and only released after you confirm the task is complete.</div></div>
+<button class="btn btn-sun" onclick="go('s-lreview')">REVIEW QUEST →</button>
+<button class="btn btn-ghost" style="margin-top:8px;" onclick="go('s-lbrowse')">← Back to Bayanis</button>
+```
+
   </div>
   <div class="bottom-nav" id="bnav-lq"></div>
 </div>
 
 <!-- ══════════════════════════════════════  S15 · LAKAN QUEST REVIEW  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-lreview" style="background:var(--bg);">
   <div style="background:var(--ink);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
     <button onclick="go('s-lquest')" style="font-family:var(--px);font-size:7px;color:#706050;background:none;border:none;cursor:pointer;letter-spacing:1px;">← EDIT</button>
@@ -720,6 +746,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- ══════════════════════════════════════  S16 · LAKAN WAITING  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-lwaiting" style="background:var(--bg);">
   <div style="background:var(--ink);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
     <button onclick="go('s-lreview')" style="font-family:var(--px);font-size:7px;color:#706050;background:none;border:none;cursor:pointer;letter-spacing:1px;">← BACK</button>
@@ -748,6 +775,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- ══════════════════════════════════════  S17 · LAKAN QUEST ACTIVE  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-lactive" style="background:var(--bg);">
   <div style="background:var(--ink);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
     <button onclick="go('s-lmap')" style="font-family:var(--px);font-size:7px;color:#706050;background:none;border:none;cursor:pointer;letter-spacing:1px;">← MAP</button>
@@ -784,6 +812,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- ══════════════════════════════════════  S18 · LAKAN CONFIRM  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-lconfirm" style="background:var(--bg);">
   <div style="background:var(--ink);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
     <div style="font-family:var(--px);font-size:8px;color:var(--sun);">CONFIRM COMPLETION</div>
@@ -824,6 +853,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- ══════════════════════════════════════  S19 · LAKAN DONE  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-ldone" style="background:var(--bg);">
   <div style="background:var(--ink);padding:14px 20px;text-align:center;flex-shrink:0;">
     <div style="font-family:var(--px);font-size:9px;color:var(--sun);">QUEST COMPLETE!</div>
@@ -845,6 +875,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- ══════════════════════════════════════  S20 · PROFILE  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-profile" style="background:var(--bg);">
   <div class="dark-header"><div style="display:flex;justify-content:space-between;align-items:center;"><div class="logo-big">ONEforJuan</div><div style="font-family:var(--px);font-size:7px;color:#706050;">PROFILE</div></div></div>
   <div class="scroll-body" style="padding-bottom:80px;">
@@ -894,6 +925,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- ══════════════════════════════════════  S21 · WALLET  ══════════════════════════════════════ -->
+
 <div class="screen" id="s-wallet" style="background:var(--bg);">
   <div class="dark-header" style="padding:18px 20px 16px;"><div style="display:flex;justify-content:space-between;align-items:center;"><div class="logo-big">ONEforJuan</div><div style="font-family:var(--px);font-size:7px;color:#706050;">WALLET</div></div></div>
   <div class="scroll-body" style="padding:20px 20px 80px;width:100%;">
@@ -934,6 +966,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 <!-- ══════════════════════════════════════  SHEETS  ══════════════════════════════════════ -->
 
 <!-- BAYANI DECLARE -->
+
 <div class="sheet-overlay" id="sh-declare">
   <div class="sheet">
     <div class="sheet-handle"></div>
@@ -964,6 +997,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- INCOMING QUEST -->
+
 <div class="sheet-overlay" id="sh-quest">
   <div class="sheet">
     <div class="sheet-handle"></div>
@@ -986,6 +1020,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- DISPUTE -->
+
 <div class="sheet-overlay" id="sh-dispute">
   <div class="sheet">
     <div class="sheet-handle"></div>
@@ -1007,6 +1042,7 @@ select.form-input{appearance:none;-webkit-appearance:none;}
 </div>
 
 <!-- ══════════════════════════════════════  JS  ══════════════════════════════════════ -->
+
 <script>
 // ── AVATAR STATE ──────────────────────────────────────────────────────────────
 const AV={skin:0,hair:0,eyes:0,mouth:0,acc:0};
@@ -1502,7 +1538,7 @@ function buildNav(id,active,mode){
 }
 
 // ── STARS BG ──────────────────────────────────────────────────────────────────
-function buildStarsBg(){
+function initStarsBg(){
   const c=document.getElementById('stars-container');if(!c)return;
   for(let i=0;i<50;i++){
     const d=document.createElement('div');
@@ -1514,7 +1550,7 @@ function buildStarsBg(){
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded',()=>{
-  buildStarsBg();
+  initStarsBg();
   renderOB();
   buildStepBar('vbar-1',1);
   buildStepBar('vbar-2',2);
@@ -1545,5 +1581,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   calcTotal();
 });
 </script>
+
 </body>
 </html>
